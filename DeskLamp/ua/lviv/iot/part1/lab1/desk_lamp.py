@@ -1,12 +1,22 @@
+# pylint disable = invalid-name
+"""
+DeskLamp class for first lab
+"""
+
+
 class DeskLamp:
     """
-    DeskLamp class for first lab
+    Private variable instance
     """
     __instance = None
 
     def __init__(self, is_on=False, brightness=5, color='white', producer='Unknown'):
         """
         Initialize the DeskLamp object with default values
+        isOn: logical value which shows if lamp is on, by default False
+        brightness: lamps brightness value ranges from 1 to 10, by default 5
+        color: lamps color of light, by default white
+        producer: producer of the lamp, by default Unknown
         """
         self.is_on = is_on
         self.brightness = brightness
@@ -14,9 +24,6 @@ class DeskLamp:
         self.producer = producer
 
     def __str__(self):
-        """
-        Return a string representation of the DeskLamp object
-        """
         return f"{self.is_on}, {self.brightness}, {self.color}, {self.producer}"
 
     @classmethod
@@ -24,7 +31,7 @@ class DeskLamp:
         """
         Return a string representation of the DeskLamp object
         """
-        if cls.__instance is None:
+        if not cls.__instance:
             cls.__instance = DeskLamp()
         return cls.__instance
 
