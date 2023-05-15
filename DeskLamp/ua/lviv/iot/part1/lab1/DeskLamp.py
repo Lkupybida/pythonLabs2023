@@ -4,7 +4,7 @@ class DeskLamp:
     """
     __instance = None
 
-    def __init__(self, is_on=False, brightness=69, color='blue', producer='I'):
+    def __init__(self, is_on=False, brightness=5, color='blue', producer='I'):
         """
         Initialize the DeskLamp object with default values
         """
