@@ -6,7 +6,7 @@ if __name__ == "__main__":
     """
     lamps = [
         DeskLamp(),
-        DeskLamp(True, 228, 'red', 'China'),
+        DeskLamp(True, 9, 'red', 'China'),
         DeskLamp.get_instance(),
         DeskLamp.get_instance()
     ]
