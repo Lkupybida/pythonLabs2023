@@ -1,16 +1,17 @@
 # pylint disable = invalid-name
 """
-DeskLamp class for first lab
+DeskLamp class
 """
+from light import Light
 
 
-class DeskLamp:
+class DeskLamp(Light):
     """
     Private variable instance
     """
     __instance = None
 
-    def __init__(self, is_on=False, brightness=5, color='white', producer='Unknown'):
+    def __init__(self, is_on=False, brightness=5, color='white', producer='Unknown', operating_hours=0):
         """
         Initialize the DeskLamp object with default values
         isOn: logical value which shows if lamp is on, by default False
@@ -18,13 +19,18 @@ class DeskLamp:
         color: lamps color of light, by default white
         producer: producer of the lamp, by default Unknown
         """
+        super().__init__(producer, operating_hours)
         self.is_on = is_on
         self.brightness = brightness
         self.color = color
         self.producer = producer
 
     def __str__(self):
-        return f"{self.is_on}, {self.brightness}, {self.color}, {self.producer}"
+        return (
+            f"DeskLamp: is_on={self.is_on}, brightness={self.brightness}, "
+            f"color={self.color}, producer={self.producer}, "
+            f"operating_hours={self.operating_hours}"
+        )
 
     @classmethod
     def get_instance(cls):
