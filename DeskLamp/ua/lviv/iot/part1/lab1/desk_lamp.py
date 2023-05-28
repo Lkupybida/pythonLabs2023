@@ -1,4 +1,5 @@
 # pylint disable = invalid-name
+# pylint disable = invalid-name
 """
 DeskLamp class
 """
@@ -69,3 +70,10 @@ class DeskLamp(Light):
         Set the color of the desk lamp
         """
         self.color = color
+
+    @classmethod
+    def do_something(cls):
+        """
+        Perform some action for the Candle object.
+        """
+        return "Candle is doing something"

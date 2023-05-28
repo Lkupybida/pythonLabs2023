@@ -27,6 +27,9 @@ if __name__ == "__main__":
     for i in lamps:
         print(i)
 
+    results = manager.get_results()
+    print(results)
+
 
 def add_numbers(*args):
     """

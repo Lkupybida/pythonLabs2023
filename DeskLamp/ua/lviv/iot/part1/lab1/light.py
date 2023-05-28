@@ -12,6 +12,11 @@ class Light(ABC):
     Attributes:
         producer (str): The producer of the light source.
         operating_hours (int): The operating hours of the light source.
+        colors_set (set): The colors of the light source.
+    """
+    colors_set = set()
+    """
+    Declare an empty set as a class attribute
     """
 
     def __init__(self, producer='Unknown', operating_hours=0):

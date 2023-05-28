@@ -15,6 +15,7 @@ class Searchlight(Light):
         operating_hours (int): The operating hours of the search_light.
     """
 
+
     def __init__(self, is_on=False, brightness=5, producer='Unknown', operating_hours=0):
         """
         Initialize a Searchlight object.
@@ -28,6 +29,7 @@ class Searchlight(Light):
         super().__init__(producer, operating_hours)
         self.is_on = is_on
         self.brightness = brightness
+        self.colors_set = {"white", "SOS"}
 
     def turn_on(self):
         """
@@ -63,3 +65,10 @@ class Searchlight(Light):
             f"Searchlight: is_on={self.is_on}, brightness={self.brightness}, "
             f"producer={self.producer}, operating_hours={self.operating_hours}"
         )
+
+    @classmethod
+    def do_something(cls):
+        """
+        Perform some action for the SearchLight object.
+        """
+        return "Searchlight is doing something"

@@ -25,6 +25,7 @@ class GasLight(Light):
         """
         super().__init__(producer, operating_hours)
         self.is_on = is_on
+        self.colors_set = {"yellowIsh", "blueIsh"}
 
     def turn_on(self):
         """
@@ -43,3 +44,10 @@ class GasLight(Light):
         Return a string representation of the GasLight object.
         """
         return f"GasLight: is_on={self.is_on}, producer={self.producer}, operating_hours={self.operating_hours}"
+
+    @classmethod
+    def do_something(cls):
+        """
+        Perform some action for the GasLight object.
+        """
+        return "GasLight is doing something"
