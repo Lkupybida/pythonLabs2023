@@ -1,8 +1,8 @@
 """
 light.py
 """
-
 from abc import ABC, abstractmethod
+from exceptions import BrightnessMaxedOutException, InvalidProducerException, logged
 
 
 class Light(ABC):
@@ -18,10 +18,11 @@ class Light(ABC):
     """
     Declare an empty set as a class attribute
     """
+
     def __iter__(self):
         return iter(self.colors_set)
 
-    def __init__(self, producer='Unknown', operating_hours=0):
+    def __init__(self, brightness_limit, producer='Unknown', operating_hours=0):
         """
         Initialize a Light object.
 
@@ -31,6 +32,8 @@ class Light(ABC):
         """
         self.producer = producer
         self.operating_hours = operating_hours
+        self.brightness_limit = brightness_limit
+        self.brightness = 0
 
     @abstractmethod
     def turn_on(self):
@@ -49,3 +52,20 @@ class Light(ABC):
         Return a string representation of the Light object.
         """
         return f"Light: producer={self.producer}, operating_hours={self.operating_hours}"
+
+    @logged(BrightnessMaxedOutException, "console")
+    def max_brightness(self):
+        if self.brightness >= self.brightness_limit:
+            raise BrightnessMaxedOutException("Brightness is already at the maximum level")
+        self.brightness = self.brightness_limit
+        return self.brightness
+
+    @logged(InvalidProducerException, "file")
+    def set_producer(self, producer):
+        if not self.is_valid_producer(producer):
+            raise InvalidColorException("Invalid producer")
+        self.producer = producer
+
+    def is_valid_producer(self, producer):
+        # Logic for checking color validity
+        return True

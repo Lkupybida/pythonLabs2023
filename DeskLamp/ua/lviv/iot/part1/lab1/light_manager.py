@@ -4,6 +4,7 @@ Module: Light
 This module provides an abstract class for light sources.
 """
 from light import Light
+from exceptions import BrightnessMaxedOutException, InvalidProducerException
 
 
 class LightManager:
