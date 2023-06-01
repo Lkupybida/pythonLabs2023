@@ -25,6 +25,7 @@ class Candle(Light):
         """
         super().__init__(producer, operating_hours)
         self.is_lit = is_lit
+        self.colors_set = {"fiery Candle"}
 
     def turn_on(self):
         """
@@ -42,4 +43,12 @@ class Candle(Light):
         """
         Return a string representation of the Candle object.
         """
-        return f"Candle: is_lit={self.is_lit}, producer={self.producer}, operating_hours={self.operating_hours}"
+        return (f"Candle: is_lit={self.is_lit}, producer={self.producer}, "
+                f"operating_hours={self.operating_hours}")
+
+    @classmethod
+    def do_something(cls):
+        """
+        Perform some action for the Candle object.
+        """
+        return "Candle is doing something"

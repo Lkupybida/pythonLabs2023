@@ -1,3 +1,4 @@
+# pylint: disable = unnecessary-dunder-call
 """
 Create a list of DeskLamp objects with different configurations
 """
@@ -6,6 +7,8 @@ from candle import Candle
 from gas_light import GasLight
 from search_light import Searchlight
 from light_manager import LightManager
+from decorator_manager import measure_execution_time, convert_output_to_tuple
+from set_manager import SetManager
 
 if __name__ == "__main__":
 
@@ -19,15 +22,22 @@ if __name__ == "__main__":
     manager.add_light(gas_light)
     manager.add_light(searchlight)
     manager.add_light(lamp)
-
-    """
-    Access the lights through the light manager
-    """
     lamps = manager.get_all_lights()
     for i in lamps:
         print(i)
 
+    RESULTS = manager.get_results()
+    print(RESULTS)
 
+    set_manager = SetManager(manager)
+    print(len(set_manager))
+    print("testing")
+
+    for variable in set_manager:
+        print(variable)
+
+
+@measure_execution_time
 def add_numbers(*args):
     """
     Adds up any amount of numbers.
@@ -38,9 +48,21 @@ def add_numbers(*args):
     return total
 
 
-result = add_numbers(500, 700)
-print(result)
+@convert_output_to_tuple
+def list_generator():
+    """
+    Generates a list
+    """
+    list1 = [1, 2, 3]
+    return list1
+
+
+list2 = list_generator(0)
+print(list2)
+
+RESULT = add_numbers(500, 700)
+print(RESULT)
 
 numbers = [10, 20]
-result = add_numbers(*numbers)
-print(result)
+RESULT = add_numbers(*numbers)
+print(RESULT)

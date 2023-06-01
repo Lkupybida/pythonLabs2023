@@ -1,4 +1,5 @@
 # pylint disable = invalid-name
+# pylint disable = invalid-name
 """
 DeskLamp class
 """
@@ -11,7 +12,8 @@ class DeskLamp(Light):
     """
     __instance = None
 
-    def __init__(self, is_on=False, brightness=5, color='white', producer='Unknown', operating_hours=0):
+    def __init__(self, is_on=False, brightness=5, color='white',
+                 producer='Unknown', operating_hours=0):
         """
         Initialize the DeskLamp object with default values
         isOn: logical value which shows if lamp is on, by default False
@@ -69,3 +71,10 @@ class DeskLamp(Light):
         Set the color of the desk lamp
         """
         self.color = color
+
+    @classmethod
+    def do_something(cls):
+        """
+        Perform some action for the Candle object.
+        """
+        return "Candle is doing something"
