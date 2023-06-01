@@ -1,6 +1,9 @@
+"""
+Module: Light
+
+This module provides an abstract class for light sources.
+"""
 from light import Light
-from decorator_manager import measure_execution_time, convert_output_to_tuple
-from candle import Candle
 
 
 class LightManager:
@@ -9,6 +12,7 @@ class LightManager:
     Attributes:
         lights (list): List of light sources.
     """
+    lights = [1, 2, 3]
 
     def __init__(self):
         """
@@ -24,7 +28,6 @@ class LightManager:
         """
         return {light: set(light) for light in self.lights}
 
-    @measure_execution_time
     def add_light(self, light: Light):
         """
         Add a light source to the light manager.
@@ -78,7 +81,6 @@ class LightManager:
         """
         return list.__iter__(self.lights)
 
-    @convert_output_to_tuple
     def get_results(self):
         """
         Get a list of results of calling do_something() on each light source in the light manager.
@@ -105,7 +107,8 @@ class LightManager:
 
     def get_attributes(self, data_type):
         """
-        Get a dictionary with all keys and values of attributes of an object that match a given data type.
+        Get a dictionary with all keys and values of attributes of an object
+        that match a given data type.
         Args:
             data_type (type): The data type to filter by.
         Returns:
@@ -119,4 +122,5 @@ class LightManager:
         Returns:
             dict: A dictionary with keys "all" and "any" and boolean values.
        """
-        return {"all": all(light.is_on() for light in self.lights), "any": any(light.is_on() for light in self.lights)}
+        return {"all": all(light.is_on() for light in self.lights),
+                "any": any(light.is_on() for light in self.lights)}

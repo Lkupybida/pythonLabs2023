@@ -18,6 +18,8 @@ class Light(ABC):
     """
     Declare an empty set as a class attribute
     """
+    def __iter__(self):
+        return iter(self.colors_set)
 
     def __init__(self, producer='Unknown', operating_hours=0):
         """

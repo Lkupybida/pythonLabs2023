@@ -12,7 +12,8 @@ class DeskLamp(Light):
     """
     __instance = None
 
-    def __init__(self, is_on=False, brightness=5, color='white', producer='Unknown', operating_hours=0):
+    def __init__(self, is_on=False, brightness=5, color='white',
+                 producer='Unknown', operating_hours=0):
         """
         Initialize the DeskLamp object with default values
         isOn: logical value which shows if lamp is on, by default False
