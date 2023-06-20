@@ -2,6 +2,7 @@
 """
 Create a list of DeskLamp objects with different configurations
 """
+import logging
 from desk_lamp import DeskLamp
 from candle import Candle
 from gas_light import GasLight

@@ -2,7 +2,9 @@
 GasLight class
 """
 from light import Light
-from exceptions import BrightnessMaxedOutException, InvalidProducerException
+
+
+# from exceptions import BrightnessMaxedOutException, InvalidProducerException
 
 
 class GasLight(Light):
@@ -55,4 +57,7 @@ class GasLight(Light):
         return "GasLight is doing something"
 
     def set_max_brightness(self):
+        """
+        Method to set max brightness
+        """
         super().max_brightness()

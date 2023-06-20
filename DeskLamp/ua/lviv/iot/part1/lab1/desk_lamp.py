@@ -4,17 +4,19 @@
 DeskLamp class
 """
 from light import Light
-from exceptions import BrightnessMaxedOutException, InvalidProducerException
+
+
+# from exceptions import BrightnessMaxedOutException, InvalidProducerException
 
 
 class DeskLamp(Light):
     """
     Private variable instance
     """
-    __instance = None
+    instance = None
 
     def __init__(self, is_on=False, brightness=5, color='white',
-                 producer='Unknown', operating_hours=0):
+               producer='Unknown', operating_hours=0):
         """
         Initialize the DeskLamp object with default values
         isOn: logical value which shows if lamp is on, by default False
@@ -81,4 +83,7 @@ class DeskLamp(Light):
         return "Candle is doing something"
 
     def set_max_brightness(self):
+        """
+        Method to set max brightness
+        """
         super().max_brightness()

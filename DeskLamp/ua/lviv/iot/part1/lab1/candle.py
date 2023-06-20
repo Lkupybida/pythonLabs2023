@@ -2,7 +2,9 @@
 Candle class
 """
 from light import Light
-from exceptions import BrightnessMaxedOutException, InvalidProducerException
+
+
+# from exceptions import BrightnessMaxedOutException, InvalidProducerException
 
 
 class Candle(Light):
@@ -55,4 +57,7 @@ class Candle(Light):
         return "Candle is doing something"
 
     def set_max_brightness(self):
+        """
+        Method to set max brightness
+        """
         super().max_brightness()
