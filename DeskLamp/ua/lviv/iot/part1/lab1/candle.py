@@ -4,6 +4,9 @@ Candle class
 from light import Light
 
 
+# from exceptions import BrightnessMaxedOutException, InvalidProducerException
+
+
 class Candle(Light):
     """
     A class representing a candle.
@@ -23,7 +26,7 @@ class Candle(Light):
             producer (str, optional): The producer of the candle. Defaults to 'Unknown'.
             operating_hours (int, optional): The operating hours of the candle. Defaults to 0.
         """
-        super().__init__(producer, operating_hours)
+        super().__init__(10, producer, operating_hours)
         self.is_lit = is_lit
         self.colors_set = {"fiery Candle"}
 
@@ -52,3 +55,9 @@ class Candle(Light):
         Perform some action for the Candle object.
         """
         return "Candle is doing something"
+
+    def set_max_brightness(self):
+        """
+        Method to set max brightness
+        """
+        super().max_brightness()

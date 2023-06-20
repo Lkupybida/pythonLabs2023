@@ -6,6 +6,9 @@ This module provides an abstract class for light sources.
 from light import Light
 
 
+# from exceptions import BrightnessMaxedOutException, InvalidProducerException
+
+
 class LightManager:
     """
     Class representing a light manager.
@@ -18,6 +21,7 @@ class LightManager:
         """
         Initialize a LightManager object.
         """
+        self.dict = None
         self.lights = []
 
     def get_elements(self):
@@ -114,7 +118,7 @@ class LightManager:
         Returns:
             dict: A dictionary with matching attributes.
         """
-        return {key: value for key, value in self.__dict__.items() if isinstance(value, data_type)}
+        return {key: value for key, value in self.dict.items() if isinstance(value, data_type)}
 
     def check_condition(self):
         """

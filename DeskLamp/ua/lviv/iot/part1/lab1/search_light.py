@@ -2,6 +2,7 @@
 Searchlight class
 """
 from light import Light
+#from exceptions import BrightnessMaxedOutException, InvalidProducerException
 
 
 class Searchlight(Light):
@@ -25,7 +26,7 @@ class Searchlight(Light):
             producer (str, optional): The producer of the search_light. Defaults to 'Unknown'.
             operating_hours (int, optional): The operating hours of the search_light. Defaults to 0.
         """
-        super().__init__(producer, operating_hours)
+        super().__init__(15, producer, operating_hours)
         self.is_on = is_on
         self.brightness = brightness
         self.colors_set = {"white Searchlight", "SOS Searchlight"}
@@ -71,3 +72,9 @@ class Searchlight(Light):
         Perform some action for the SearchLight object.
         """
         return "Searchlight is doing something"
+
+    def set_max_brightness(self):
+        """
+        Method to set max brightness
+        """
+        super().max_brightness()

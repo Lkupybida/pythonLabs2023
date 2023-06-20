@@ -6,14 +6,17 @@ DeskLamp class
 from light import Light
 
 
+# from exceptions import BrightnessMaxedOutException, InvalidProducerException
+
+
 class DeskLamp(Light):
     """
     Private variable instance
     """
-    __instance = None
+    instance = None
 
     def __init__(self, is_on=False, brightness=5, color='white',
-                 producer='Unknown', operating_hours=0):
+               producer='Unknown', operating_hours=0):
         """
         Initialize the DeskLamp object with default values
         isOn: logical value which shows if lamp is on, by default False
@@ -21,7 +24,7 @@ class DeskLamp(Light):
         color: lamps color of light, by default white
         producer: producer of the lamp, by default Unknown
         """
-        super().__init__(producer, operating_hours)
+        super().__init__(10, producer, operating_hours)
         self.is_on = is_on
         self.brightness = brightness
         self.color = color
@@ -78,3 +81,9 @@ class DeskLamp(Light):
         Perform some action for the Candle object.
         """
         return "Candle is doing something"
+
+    def set_max_brightness(self):
+        """
+        Method to set max brightness
+        """
+        super().max_brightness()
